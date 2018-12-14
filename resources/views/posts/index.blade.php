@@ -35,7 +35,7 @@
 
                     <a class="btn btn-info" href="{{ route('posts.show',$post->id) }}">Show</a>
 
-                     <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a>
 
                     @csrf
                     @method('DELETE')

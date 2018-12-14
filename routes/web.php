@@ -18,3 +18,4 @@ Route::get('/', function () {
 // Route::get('post', 'HomeController@index');
 
 Route::resource('posts','HomeController');
+Route::resource('tasks','TaskController');
