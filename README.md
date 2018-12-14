@@ -42,8 +42,12 @@ step 5:
 $ php artisan make:controller DictController --resource --model=Dict
 
 step 6:
-update Dictcontroller.php
+update app/Dict.php
 
+step 7:
+update app/Http/Controllers/Dictcontroller.php
 
-
+step 8:
+generate blade files. resources/views/dicts/...
+create.blade.php, edit.blade.php, index.blade.php, layout.blade.php, show.blade.php
 
