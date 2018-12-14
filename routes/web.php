@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('post', 'HomeController@index');
+// Route::get('post', 'HomeController@index');
+
+Route::resource('posts','HomeController');
