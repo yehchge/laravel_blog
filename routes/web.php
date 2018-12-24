@@ -15,27 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('post', 'HomeController@index');
-Route::get('/blogs', 'BlogController@index')->name('blogs.index');
-Route::get('/blogs/help', 'BlogController@help')->name('blogs.help');
-Route::get('/blogs/login', 'BlogController@login')->name('blogs.login');
-Route::post('/blogs/run', 'BlogController@run')->name('blogs.run');
-Route::get('/blogs/dashboard', 'BlogController@dashboard')->name('blogs.dashboard');
-Route::post('/blogs/xhrInsert', 'BlogController@xhrInsert')->name('blogs.xhrInsert');
-Route::get('/blogs/logout', 'BlogController@logout')->name('blogs.logout');
-Route::get('/blogs/xhrGetListings', 'BlogController@xhrGetListings')->name('blogs.xhrGetListings');
-Route::post('/blogs/xhrDeleteListing', 'BlogController@xhrDeleteListing')->name('blogs.xhrDeleteListing');
-Route::get('/blogs/note', 'BlogController@note')->name('blogs.note');
-Route::post('/blogs/create', 'BlogController@create')->name('blogs.create');
-Route::get('/blogs/edit/{id}', 'BlogController@edit')->name('blogs.edit');
-Route::get('/blogs/delete/{id}', 'BlogController@delete')->name('blogs.delete');
-Route::post('/blogs/editSave/{id}', 'BlogController@editSave')->name('blogs.editSave');
-Route::get('/blogs/user', 'BlogController@user')->name('blogs.user');
-Route::post('/blogs/user_add', 'BlogController@user_add')->name('blogs.user_add');
-Route::get('/blogs/user_del/{id}', 'BlogController@user_del')->name('blogs.user_del');
-Route::get('/blogs/user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
-Route::post('/blogs/user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
-
+Route::group(['prefix'=>'/blogs'], function(){
+    Route::get('/', 'BlogController@index')->name('blogs.index');
+    Route::get('help', 'BlogController@help')->name('blogs.help');
+    Route::get('login', 'BlogController@login')->name('blogs.login');
+    Route::post('run', 'BlogController@run')->name('blogs.run');
+    Route::get('dashboard', 'BlogController@dashboard')->name('blogs.dashboard');
+    Route::post('xhrInsert', 'BlogController@xhrInsert')->name('blogs.xhrInsert');
+    Route::get('logout', 'BlogController@logout')->name('blogs.logout');
+    Route::get('xhrGetListings', 'BlogController@xhrGetListings')->name('blogs.xhrGetListings');
+    Route::post('xhrDeleteListing', 'BlogController@xhrDeleteListing')->name('blogs.xhrDeleteListing');
+    Route::get('note', 'BlogController@note')->name('blogs.note');
+    Route::post('create', 'BlogController@create')->name('blogs.create');
+    Route::get('edit/{id}', 'BlogController@edit')->name('blogs.edit');
+    Route::get('delete/{id}', 'BlogController@delete')->name('blogs.delete');
+    Route::post('editSave/{id}', 'BlogController@editSave')->name('blogs.editSave');
+    Route::get('user', 'BlogController@user')->name('blogs.user');
+    Route::post('user_add', 'BlogController@user_add')->name('blogs.user_add');
+    Route::get('user_del/{id}', 'BlogController@user_del')->name('blogs.user_del');
+    Route::get('user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
+    Route::post('user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
+});
 
 Route::resource('posts','PostController');
 Route::resource('tasks','TaskController');
