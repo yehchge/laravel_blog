@@ -139,14 +139,15 @@ class BlogController extends Controller
         return view('blogs.edit', compact('blogRow'));
     }
 
-    public function editSave(Request $request,Blog $blog, $id){
-        $blog->editSave($request);
+    public function editSave(Blog $blog, $id){
+        $blog->editSave($id);
         return redirect()->route('blogs.note');
     }
 
 
-    public function delete(){
-
+    public function delete(Blog $blog, $id){
+        $blog->deleteNote($id);
+        return redirect()->route('blogs.note');
     }
 
     /**

@@ -56,8 +56,16 @@ class Blog extends Model
             return array();
     }
 
-    public function editSave(){
+    public function editSave($id){
+        DB::table('note')
+            ->where('noteid', $id)
+            ->update(['title' => $_POST['title'],'content' => $_POST['content']]);
+    }
 
+    public function deleteNote($id){
+        DB::table('note')
+            ->where('noteid', $id)
+            ->delete();
     }
 
     public function xhrGetListings(){

@@ -28,7 +28,7 @@ Route::post('/blogs/xhrDeleteListing', 'BlogController@xhrDeleteListing')->name(
 Route::get('/blogs/note', 'BlogController@note')->name('blogs.note');
 Route::post('/blogs/create', 'BlogController@create')->name('blogs.create');
 Route::get('/blogs/edit/{id}', 'BlogController@edit')->name('blogs.edit');
-Route::get('/blogs/delete', 'BlogController@delete')->name('blogs.delete');
+Route::get('/blogs/delete/{id}', 'BlogController@delete')->name('blogs.delete');
 Route::post('/blogs/editSave/{id}', 'BlogController@editSave')->name('blogs.editSave');
 Route::get('/blogs/user', 'BlogController@user')->name('blogs.user');
 

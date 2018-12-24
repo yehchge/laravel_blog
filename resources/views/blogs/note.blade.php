@@ -31,7 +31,7 @@
         <td>{{ $value->title }}</td>
         <td>{{ $value->created_at }}</td>
         <td><a href="{{ route('blogs.edit', $value->noteid) }}">Edit</a></td>
-        <td><a class='delete' href="{{ route('blogs.delete') }}/{{ $value->noteid }}">Delete</a></td>
+        <td><a class='delete' href="{{ route('blogs.delete', $value->noteid) }}">Delete</a></td>
     </tr>
 @endforeach
 </table>
