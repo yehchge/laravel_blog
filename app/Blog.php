@@ -78,6 +78,49 @@ class Blog extends Model
         DB::table('data')->where('dataid', $id)->delete();
     }
 
+    public function userList($request){
+        $userid = $request->session()->get('userid');
+        $aUser = DB::table('user')->get();
+        return $aUser;
+    }
+
+    public function user_add(){
+        $id = DB::table('user')->insertGetId(
+            [
+                'login' => $_POST['login'],
+                'password' => MD5($_POST['password']),
+                'role' => $_POST['role'],
+                'login_session' => '',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]
+        );
+    }
+
+    public function user_del($id){
+        DB::table('user')
+            ->where('userid', $id)
+            ->delete();
+    }
+
+    public function user_edit($id){
+         $aUser = DB::table('user')->where('userid',$id)->get();
+        if(count($aUser)>0)
+            return $aUser[0];
+        else
+            return array();
+    }
+
+    public function userEditSave($id){
+
+        $aValue = array('login' => $_POST['login'], 'role' => $_POST['role'], 'updated_at' => date('Y-m-d H:i:s'));
+        if($_POST['password']) $aValue = array_merge($aValue, array('password' => MD5($_POST['password'])));
+
+        DB::table('user')
+            ->where('userid', $id)
+            ->update($aValue);
+    }
+
     public function noteList($request){
         $userid = $request->session()->get('userid');
         $aNote = DB::table('note')->where('userid', $userid)->get();

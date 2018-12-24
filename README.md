@@ -1,12 +1,15 @@
 # laravel_blog
 
+Use Laravel 5.7
+
+Blog Sample:
+http://localhost:8000/blogs
 
 Blog:
 http://localhost:8000/posts
 
 Ref:
 https://itsolutionstuff.com/post/laravel-57-crud-create-read-update-delete-tutorial-example-example.html
-
 
 Task List:
 http://localhost:8000/tasks

@@ -45,7 +45,6 @@ class BlogController extends Controller
     }
 
     public function dashboard(Request $request){
-
         $logged = $request->session()->get('loggedIn');
 
         if ($logged == false) {
@@ -54,7 +53,6 @@ class BlogController extends Controller
         }
         return view('blogs.dashboard');
     }
-
 
     public function xhrInsert(Request $request, Blog $blog){
         $logged = $request->session()->get('loggedIn');
@@ -72,6 +70,33 @@ class BlogController extends Controller
 
     public function xhrDeleteListing(Blog $blog){
         $blog->xhrDeleteListing();
+    }
+
+    public function user(Request $request, Blog $blog){
+        $userList = $blog->userList($request);
+        return view('blogs.user', compact('userList'));
+    }
+
+    public function user_add(Blog $blog){
+        $blog->user_add();
+        return redirect()->route('blogs.user');
+    }
+
+    public function user_del(Blog $blog, $id){
+        $blog->user_del($id);
+        return redirect()->route('blogs.user');
+    }
+
+    public function user_edit(Blog $blog, $id){
+        if(!$_POST){
+            $userRow = $blog->user_edit($id);
+            return view('blogs.user_edit', compact('userRow'));
+        }else{
+            $blog->userEditSave($id);
+            return redirect()->route('blogs.user');
+        }
+
+
     }
 
     public function note(Request $request, Blog $blog){

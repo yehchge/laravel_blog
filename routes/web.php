@@ -31,6 +31,10 @@ Route::get('/blogs/edit/{id}', 'BlogController@edit')->name('blogs.edit');
 Route::get('/blogs/delete/{id}', 'BlogController@delete')->name('blogs.delete');
 Route::post('/blogs/editSave/{id}', 'BlogController@editSave')->name('blogs.editSave');
 Route::get('/blogs/user', 'BlogController@user')->name('blogs.user');
+Route::post('/blogs/user_add', 'BlogController@user_add')->name('blogs.user_add');
+Route::get('/blogs/user_del/{id}', 'BlogController@user_del')->name('blogs.user_del');
+Route::get('/blogs/user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
+Route::post('/blogs/user_edit/{id}', 'BlogController@user_edit')->name('blogs.user_edit');
 
 
 Route::resource('posts','PostController');
